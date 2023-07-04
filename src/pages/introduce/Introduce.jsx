@@ -17,7 +17,7 @@ const Introduce = () => {
   };
 
   return (
-    <div className="container introduce m-auto mb-5 mt-2 rounded-5 w-50 shadow-lg introduce-container">
+    <div className="container introduce m-auto mb-5 rounded-5 w-50 shadow-lg introduce-container">
       {/* <i className="fa-brands fa-google"></i> */}
       <h1>choose a set to make a test</h1>
       <Dropdown

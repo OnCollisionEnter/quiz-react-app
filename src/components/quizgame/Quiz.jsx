@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 
 const QuizGame = (props) => {
   const { score, setScore, setGameState } = useContext(QuizContext);
-  const [isFinished, setFinished] = useState(false);
   const [currQuestion, setCurrQuestion] = useState(0);
   const questionsArray = [...props.quizQuestions];
   const [optionChosen, setOptionChosen] = useState("");
@@ -93,9 +92,13 @@ const QuizGame = (props) => {
         if (questionsArray[currQuestion].correctAnswer === optionChosen) {
           setScore(score + 1);
         }
+        setIsAnswered((prevState) => {
+          const newState = [...prevState];
+          newState[currQuestion] = true;
+          return newState;
+        });
       }
       finishQuiz();
-      setFinished(true);
     }
   };
   const prevQuestion = () => {
@@ -106,12 +109,10 @@ const QuizGame = (props) => {
     }
   };
   const finishQuiz = () => {
-    if (isFinished) {
-      setIsCorrect(Array(questionsArray.length).fill("empty"));
-      setIsAnswered(Array(questionsArray.length).fill(false));
+    setIsCorrect(Array(questionsArray.length).fill("empty"));
+    setIsAnswered(Array(questionsArray.length).fill(false));
 
-      setGameState("endScreen");
-    }
+    setGameState("endScreen");
   };
 
   useState(console.log(optionChosen), [optionChosen]);
