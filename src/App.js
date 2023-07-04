@@ -4,10 +4,11 @@ import Quiz from "./pages/quiz/Quiz";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Banner from "./components/navbar/Banner";
-import QuestionList from "./components/Questions/QuestionList";
 import { useTheme } from "./context/ThemeContext";
 import Footer from "./components/footer/Footer";
 import { useState } from "react";
+import HomePage from "./pages/homepage/HomePage";
+// import QuestionSolutionPage from "./components/Questions/QuestionSolutionPage";
 
 function App() {
   const { theme } = useTheme();
@@ -17,13 +18,18 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route path="/" element={<Introduce />} />
-          <Route path="/login" element={<Introduce />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/quiz/:collection" element={<Quiz />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" />
+          <Route exact path="/quiz" element={<Introduce />} />
+          <Route exact path="/quiz/:collection" element={<Quiz />} />
+          {/* <Route
+            exact
+            path="/question/:id"
+            element={<QuestionSolutionPage />}
+          /> */}
         </Routes>
       </Router>
-      <QuestionList />
+
       <Footer />
     </div>
   );

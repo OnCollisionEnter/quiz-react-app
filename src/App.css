@@ -1,23 +1,26 @@
-.main {
-  width: 100%;
+body {
+  height: 100%;
+  /* width: 100%; */
   margin: 0px;
   padding: 0px;
-  height: 100%;
+  /* height: 100vh; */
   font-family: "Red Hat Display", sans-serif;
-  background-color: #131746;
+  background-color: #ffdba9;
+  display: flex;
+  flex-direction: column;
 }
 
 #dark {
   background-color: #343dc0;
   /* background-image: linear-gradient(to right, #131746, #12195f); */
-  height: 100vh;
+  min-height: 100vh;
   transition: 0.5s;
 }
 #light {
   background-color: #ffdba9;
   /* background-image: linear-gradient(to right, #f5ece5, #f5ece5); */
   transition: 0.5s;
-  height: 100vh;
+  min-height: 100vh;
 }
 /* background-color: #131746; */
 

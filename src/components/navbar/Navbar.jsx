@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Switch from "./Switch";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -25,12 +26,12 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item me-5">
-              <a class="nav-link active" aria-current="page" href="#">
+              <a class="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
-            <li class="nav-item me-5">
-              <a class="nav-link" href="#">
+            <li className="nav-item me-5">
+              <a class="nav-link" href="/quiz">
                 Quiz
               </a>
             </li>
