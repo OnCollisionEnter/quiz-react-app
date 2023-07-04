@@ -1,0 +1,61 @@
+.main {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  font-family: "Red Hat Display", sans-serif;
+  background-color: #131746;
+}
+
+#dark {
+  background-color: #343dc0;
+  /* background-image: linear-gradient(to right, #131746, #12195f); */
+  height: 100vh;
+  transition: 0.5s;
+}
+#light {
+  background-color: #ffdba9;
+  /* background-image: linear-gradient(to right, #f5ece5, #f5ece5); */
+  transition: 0.5s;
+  height: 100vh;
+}
+/* background-color: #131746; */
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
