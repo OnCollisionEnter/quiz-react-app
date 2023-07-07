@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container w-75 m-auto ">
         <div className="row">
           <div className="col text-start">webdev-kemal/react-quiz-app/</div>
-          <div className="col text-center">Made with ❤️ by me.</div>
+          <div className="col text-center">Made with ❤️ by mkod.</div>
           <div className="col text-end">
             <a href="https://www.instagram.com/dev.kemal/" target="_blank">
               instagram

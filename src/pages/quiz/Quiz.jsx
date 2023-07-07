@@ -14,9 +14,9 @@ const Quiz = () => {
 
   return (
     <div>
-      <div className="container w-50 mb-5 rounded-5 d-flex shadow-lg quiz-container">
+      <div className="container w-75 mb-4 rounded-5 p-5 d-flex shadow-lg quiz-container">
         <div className="quiz text-center">
-          <strong>Selected:</strong> {collection}
+          <h2>Quiz: {collection}</h2>
           <QuizContext.Provider
             value={{ gameState, setGameState, score, setScore }}
           >
@@ -26,7 +26,25 @@ const Quiz = () => {
           </QuizContext.Provider>
         </div>
       </div>
-      <div>{/* <QuestionList /> */}</div>
+      <div>
+        {gameState === "menu" && (
+          <div className="container w-75 mb-4 rounded-5 p-5 d-flex shadow-lg quiz-container">
+            <div className="quiz text-center w-100">
+              <h2>Önceki Sınav Sonuçlarınız</h2>
+              <br />
+              <p>Daha önceki sınavlarınız bulunmamaktadır.</p>
+            </div>
+          </div>
+        )}
+        <div className="container w-75 mb-5  p-5 d-flex shadow-lg ad-container">
+          <div className="quiz text-center w-100">
+            <h2>Reklam Panosu</h2>
+            <br />
+            <p>bu alanı sade bir reklam panosu dolduracak.</p>
+          </div>
+        </div>
+        {gameState === "endScreen" && <div class="extraspace"></div>}
+      </div>
     </div>
   );
 };

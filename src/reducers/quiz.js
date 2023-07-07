@@ -3,59 +3,91 @@
 const quizQuestions = [
   {
     id: 1,
-    question: "Which hook is used for making API calls in React?",
+    question: "We _________ our homework at the moment.",
     choices: {
-      a: "useFetch",
-      b: "useEffect",
-      c: "useState",
-    },
-    correctAnswer: "a",
-  },
-  {
-    id: 2,
-    question:
-      "Which library is commonly used for state management in large React applications?",
-    choices: {
-      a: "React Router",
-      b: "Redux",
-      c: "React Context",
-    },
-    correctAnswer: "b",
-  },
-  {
-    id: 3,
-    question:
-      "Which lifecycle method is called after a component has been rendered in React?",
-    choices: {
-      a: "componentWillMount",
-      b: "componentDidUpdate",
-      c: "componentDidMount",
+      a: "do",
+      b: "did",
+      c: "are doing",
     },
     correctAnswer: "c",
   },
   {
-    id: 4,
-    question: "What is the purpose of the React Virtual DOM?",
+    id: 2,
+    question: "They _________ to the music while they work.",
     choices: {
-      a: "To improve performance by reducing the number of actual DOM updates.",
-      b: "To add inline styles to React components.",
-      c: "To handle form validation in React applications.",
+      a: "are listening",
+      b: "listen",
+      c: "listened",
     },
     correctAnswer: "a",
   },
+
   {
-    id: 5,
-    question:
-      "Which feature allows you to optimize performance in React by avoiding unnecessary re-renders?",
+    id: 3,
+    question: "I _________ a delicious cake for the party.",
     choices: {
-      a: "React Hooks",
-      b: "Memoization",
-      c: "Higher-Order Components (HOCs)",
+      a: "bake",
+      b: "am baking",
+      c: "baked",
     },
     correctAnswer: "b",
   },
-  // Add more questions as needed
+  {
+    id: 4,
+    question: "They _________ basketball in the park every weekend.",
+    choices: {
+      a: "play",
+      b: "played",
+      c: "are playing",
+    },
+    correctAnswer: "c",
+  },
+  {
+    id: 5,
+    question: "My sister _________ her guitar right now.",
+    choices: {
+      a: "practices",
+      b: "is practicing",
+      c: "practiced",
+    },
+    correctAnswer: "b",
+  },
+
+  {
+    id: 6,
+    question: "I _________ to the party tomorrow.",
+    choices: {
+      a: "am going",
+      b: "go",
+      c: "will go",
+    },
+    correctAnswer: "c",
+  },
+  {
+    id: 7,
+    question: "They _________ a new car next year.",
+    choices: {
+      a: "are buying",
+      b: "buy",
+      c: "will buy",
+    },
+    correctAnswer: "c",
+  },
+
+  {
+    id: 8,
+    question: "I _________ shopping every day.",
+    choices: {
+      a: "go",
+      b: "am going",
+      c: "will go",
+    },
+    correctAnswer: "a",
+  },
 ];
+
+// Add more questions as needed
+
 //CREATE REDUCER
 const quizReducer = (state = quizQuestions, action) => {
   switch (action.type) {

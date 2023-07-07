@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-bg mb-5 mt-2 w-75 m-auto rounded-5">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-bg mb-4 mt-2 w-75 m-auto rounded-5">
       <div class="container-fluid custom-navbar">
         <a class="navbar-brand" href="/">
           <span class="spans">&#123;</span>
@@ -41,9 +41,9 @@ const Navbar = () => {
                 <span class="badge bg-warning ms-1 text-dark p-1">Pro</span>
               </a>
             </li>*/}
-            <li class="nav-item">
+            <li class="nav-item me-4">
               <a class="nav-link disabled position-relative" href="#">
-                Progress
+                Courses
                 <span class="badge bg-warning ms-1 text-dark p-1 badge-color">
                   Pro
                 </span>

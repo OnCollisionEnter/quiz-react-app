@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { QuizContext } from "../../context/QuizContext";
+import { Link } from "react-router-dom";
 
 const EndScreen = () => {
   const { score } = useContext(QuizContext);
@@ -8,7 +9,15 @@ const EndScreen = () => {
   return (
     <div>
       <br />
-      Correct answers: <h2>{score}</h2>
+      Doğru cevap sayısı: <h2>{score}</h2>
+      Eğitmen: <h2>Ali Haydar</h2>
+      <Link
+        to="/"
+        className=" btn mt-3 btn-md bg-success text-white"
+        onClick={() => {}}
+      >
+        Teslim Et
+      </Link>
     </div>
   );
 };

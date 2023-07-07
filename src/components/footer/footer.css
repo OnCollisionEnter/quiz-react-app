@@ -1,8 +1,6 @@
 .custom-footer {
   padding: 20px;
-
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
 }
 
 #light .custom-footer {
