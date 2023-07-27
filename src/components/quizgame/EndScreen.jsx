@@ -10,7 +10,7 @@ const EndScreen = () => {
     <div>
       <br />
       Doğru cevap sayısı: <h2>{score}</h2>
-      Eğitmen: <h2>Ali Haydar</h2>
+      Eğitmen: <h2>Ali Haydar Göksoy</h2>
       <Link
         to="/"
         className=" btn mt-3 btn-md bg-success text-white"

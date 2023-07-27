@@ -1,16 +1,15 @@
 import React from "react";
 import Switch from "./Switch";
 import "./navbar.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const ExtendedNavbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-bg mt-3 w-75 mx-auto rounded-5">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-bg w-100 mx-auto ">
       <div class="container-fluid custom-navbar">
         <a class="navbar-brand" href="/">
-          <span class="spans">&#123;</span>
-          reactQuizApp
-          <span class="spans">&#125;</span>
+          <i class="fa-solid fa-gears white"></i>
+          The Workshop
         </a>
         <button
           class="navbar-toggler"
@@ -66,4 +65,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ExtendedNavbar;

@@ -110,7 +110,7 @@ const QuizGame = (props) => {
   useState(console.log(optionChosen), [optionChosen]);
 
   return (
-    <div className="container container-modified m-auto w-75">
+    <div className="container m-auto w-75 h-320">
       <div className="d-flex justify-content-between">
         <div
           onClick={prevQuestion}
@@ -122,8 +122,11 @@ const QuizGame = (props) => {
         >
           ÖNCEKİ
         </div>
+        {isCorrect[currQuestion] === "correct" && (
+          <div className=""> DOĞRU CEVAP!</div>
+        )}
         <div onClick={nextQuestion} className="fw-bold question-nav">
-          {currQuestion === questionsArray.length - 1 ? "BİTİR" : "SONRAKİ"}
+          {currQuestion === questionsArray.length - 1 ? "--BİTİR--" : "SONRAKİ"}
         </div>
       </div>
       <h2 className="quizGame">
@@ -143,9 +146,6 @@ const QuizGame = (props) => {
                 >
                   {choiceValue}
                 </div>
-                {isCorrect[currQuestion] === "correct" && (
-                  <p>CORRECT ANSWER!</p>
-                )}
               </div>
             ) : (
               <div>

@@ -1,11 +1,14 @@
 body {
-  height: 100%;
   /* width: 100%; */
   margin: 0px;
   padding: 0px;
   /* height: 100vh; */
   font-family: "Red Hat Display", sans-serif;
   background-color: #ffdba9;
+}
+
+.mh-100vh {
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
 }
@@ -13,12 +16,11 @@ body {
 #dark {
   background-color: #343dc0;
   /* background-image: linear-gradient(to right, #131746, #12195f); */
-  min-height: 100vh;
+
   transition: 0.5s;
 }
 #light {
   background-color: #ffdba9;
   /* background-image: linear-gradient(to right, #f5ece5, #f5ece5); */
   transition: 0.5s;
-  min-height: 100vh;
 }

@@ -2,9 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import configureStore from "./store/configureStore";
-import { addQuestion, deleteQuestion, editQuestion } from "./actions/quiz";
+// import { addQuestion, deleteQuestion, editQuestion } from "./actions/quiz";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Provider } from "react-redux";
+
+import { AlertProvider } from "./context/AlertContext";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const store = configureStore();
 
@@ -30,7 +33,11 @@ root.render(
   <>
     <Provider store={store}>
       <ThemeProvider>
-        <App />
+        <ChakraProvider>
+          <AlertProvider>
+            <App />
+          </AlertProvider>
+        </ChakraProvider>
       </ThemeProvider>
     </Provider>
   </>

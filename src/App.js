@@ -2,12 +2,17 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Introduce from "./pages/introduce/Introduce";
 import Quiz from "./pages/quiz/Quiz";
 import "./App.css";
-import Navbar from "./components/navbar/Navbar";
+
 import Banner from "./components/navbar/Banner";
 import { useTheme } from "./context/ThemeContext";
 import Footer from "./components/footer/Footer";
-import { useState } from "react";
+
 import HomePage from "./pages/homepage/HomePage";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/login/Login";
+import Alert from "./components/alert/Alert";
+// import { ChakraProvider } from "@chakra-ui/react";
+
 // import QuestionSolutionPage from "./components/Questions/QuestionSolutionPage";
 
 function App() {
@@ -15,13 +20,14 @@ function App() {
   return (
     <div id={theme}>
       <Banner />
-      <Navbar />
+
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" />
           <Route exact path="/quiz" element={<Introduce />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/quiz/:collection" element={<Quiz />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
           {/* <Route
             exact
             path="/question/:id"
@@ -30,6 +36,7 @@ function App() {
         </Routes>
       </Router>
 
+      <Alert />
       <Footer />
     </div>
   );

@@ -3,86 +3,54 @@
 const quizQuestions = [
   {
     id: 1,
-    question: "We _________ our homework at the moment.",
+    question: "She ___ very tall.",
     choices: {
-      a: "do",
-      b: "did",
-      c: "are doing",
-    },
-    correctAnswer: "c",
-  },
-  {
-    id: 2,
-    question: "They _________ to the music while they work.",
-    choices: {
-      a: "are listening",
-      b: "listen",
-      c: "listened",
+      a: "is",
+      b: "am",
+      c: "are",
     },
     correctAnswer: "a",
   },
-
+  {
+    id: 2,
+    question: "Are you __________!",
+    choices: {
+      a: "short",
+      b: "serious",
+      c: "tall",
+    },
+    correctAnswer: "b",
+  },
   {
     id: 3,
-    question: "I _________ a delicious cake for the party.",
+    question: "Why __ you sad?",
     choices: {
-      a: "bake",
-      b: "am baking",
-      c: "baked",
+      a: "is",
+      b: "are",
+      c: "am",
     },
     correctAnswer: "b",
   },
   {
     id: 4,
-    question: "They _________ basketball in the park every weekend.",
+    question:
+      "Make this qweqweqweqweqweqweqqqqqqqqqqq qqqqqq qqq  qqqqqqqq qqqqqqqqqqqqqqphrase negative: 'She is fat.'",
     choices: {
-      a: "play",
-      b: "played",
-      c: "are playing",
+      a: "She is not fat.",
+      b: "She is no fat.",
+      c: "She no fat.",
     },
-    correctAnswer: "c",
+    correctAnswer: "a",
   },
   {
     id: 5,
-    question: "My sister _________ her guitar right now.",
+    question: "Make this phrase a question: 'You are happy.'",
     choices: {
-      a: "practices",
-      b: "is practicing",
-      c: "practiced",
+      a: "Happy you?",
+      b: "Are you happy?",
+      c: "You are happy?",
     },
     correctAnswer: "b",
-  },
-
-  {
-    id: 6,
-    question: "I _________ to the party tomorrow.",
-    choices: {
-      a: "am going",
-      b: "go",
-      c: "will go",
-    },
-    correctAnswer: "c",
-  },
-  {
-    id: 7,
-    question: "They _________ a new car next year.",
-    choices: {
-      a: "are buying",
-      b: "buy",
-      c: "will buy",
-    },
-    correctAnswer: "c",
-  },
-
-  {
-    id: 8,
-    question: "I _________ shopping every day.",
-    choices: {
-      a: "go",
-      b: "am going",
-      c: "will go",
-    },
-    correctAnswer: "a",
   },
 ];
 

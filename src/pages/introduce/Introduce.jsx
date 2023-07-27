@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Dropdown from "../../components/dropdown/Dropdown";
 import "./Introduce.css";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
 
 const Introduce = () => {
   const collections = [
-    "Past Tense Testi",
+    "Simple Past Tense",
     "Zaman Zarfları",
     "Preposition Testi",
   ];
@@ -19,8 +20,9 @@ const Introduce = () => {
   };
 
   return (
-    <div>
-      <div className="container introduce m-auto mb-4 rounded-5 w-75 p-5 shadow-lg introduce-container">
+    <div className="mh-100vh">
+      <Navbar />
+      <div className="container introduce mx-auto mt-4 rounded-5 w-75 p-5 shadow-lg introduce-container">
         {/* <i className="fa-brands fa-google"></i> */}
         <h1>Teslim edilecek ödevi seçin</h1>
         <Dropdown
@@ -33,7 +35,7 @@ const Introduce = () => {
         </div>
       </div>
 
-      <div class="container w-75 mb-5 p-5 rounded-5 shadow-lg quiz-container">
+      <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container">
         <h2>Tekrar edebileceğiniz konular</h2>
         <br />
         <div class="row">

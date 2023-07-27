@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import Navbar from "../../components/navbar/Navbar";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="mh-100vh">
+      <Navbar />
       {/* <div className="container w-50 mb-5 p-5 rounded-5 d-flex shadow-lg quiz-container">
         <h3>
           Please navigate to the quiz page or simply click
@@ -14,7 +16,7 @@ const HomePage = () => {
       </div> */}
 
       <div>
-        <div class="container w-75 w-md-50 mb-4 p-5 rounded-5 shadow-lg quiz-container">
+        <div class="container w-75 w-md-50 mt-4 p-5 rounded-5 shadow-lg default-container">
           <div class="row">
             <div class="col-lg-4 col-md-12">
               <h1>Hoşgeldin, Okan.</h1>
@@ -56,7 +58,7 @@ const HomePage = () => {
                     <h3 class="card-title">Ünite Testi</h3>
                     <p class="card-text text-large">
                       <h4>Konu: Present Continuous </h4>
-                      Eğitmen: Ali Haydar
+                      Eğitmen: Ali Haydar Göksoy
                       <br />
                       Ödev: 20 Test Sorusu <br /> Son <strong>
                         18
@@ -73,7 +75,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div class="container w-75 mb-5 p-5 rounded-5 shadow-lg quiz-container">
+      <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container">
         <h2>Kelime dağarcığını genişlet!</h2>
         <br />
         <div class="row">
