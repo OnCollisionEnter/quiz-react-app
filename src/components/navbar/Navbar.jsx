@@ -1,9 +1,14 @@
 import React from "react";
 import Switch from "./Switch";
 import "./navbar.css";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
+import { useMediaQuery } from "@chakra-ui/react";
 
 const Navbar = () => {
+  const [isLargerThanMobile] = useMediaQuery("(min-width: 768px)");
+  const navigate = useNavigate();
+
   return (
     <nav class="navbar navbar-expand-lg navbar-dark navbar-bg mt-3 w-75 mx-auto rounded-5">
       <div class="container-fluid custom-navbar">
@@ -25,14 +30,29 @@ const Navbar = () => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item me-5">
-              <a class="nav-link active" aria-current="page" href="/">
+            <li class="nav-item me-4">
+              <a
+                class="nav-link navlink-hover active"
+                aria-current="page"
+                onClick={() => navigate("/")}
+              >
                 Home
               </a>
             </li>
-            <li className="nav-item me-5">
-              <a class="nav-link" href="/quiz">
+            <li className="nav-item me-4">
+              <a
+                class="nav-link navlink-hover"
+                onClick={() => navigate("/quiz")}
+              >
                 Quiz
+              </a>
+            </li>
+            <li className="nav-item me-4">
+              <a
+                class="nav-link navlink-hover"
+                onClick={() => navigate("/courses")}
+              >
+                Courses
               </a>
             </li>
             {/* <li class="nav-item">
@@ -42,23 +62,33 @@ const Navbar = () => {
               </a>
             </li>*/}
             <li class="nav-item me-4">
-              <a class="nav-link position-relative" href="/dashboard">
+              <a
+                class="nav-link navlink-hover position-relative"
+                onClick={() => navigate("/dashboard")}
+              >
                 Dashboard
                 <span class="badge bg-warning ms-1 text-dark p-1 badge-color">
                   Pro
                 </span>
               </a>
             </li>
-            <li class="nav-item me-5">
-              <a class="nav-link" href="/login">
+            <li class="nav-item  me-5">
+              <a
+                class="nav-link navlink-hover"
+                onClick={() => navigate("/login")}
+              >
                 Login
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <Switch />
-              </a>
-            </li>
+            {isLargerThanMobile ? (
+              <li class="nav-item">
+                <a class="nav-link " href="#">
+                  <Switch />
+                </a>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>

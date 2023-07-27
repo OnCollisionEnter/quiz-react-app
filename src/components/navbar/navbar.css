@@ -44,3 +44,18 @@
 #light a {
   color: #000000;
 }
+
+/* navlinks */
+.navlink-hover {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.navlink-hover:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+#dark .navlink-hover:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
