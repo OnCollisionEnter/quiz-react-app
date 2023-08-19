@@ -5,13 +5,14 @@ import "./App.css";
 
 import Banner from "./components/navbar/Banner";
 import { useTheme } from "./context/ThemeContext";
-import Footer from "./components/footer/Footer";
 
 import HomePage from "./pages/homepage/HomePage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/login/Login";
 import Alert from "./components/alert/Alert";
 import Main from "./pages/courses/Main";
+import VideoPage from "./pages/video/VideoPage";
+
 // import { ChakraProvider } from "@chakra-ui/react";
 
 // import QuestionSolutionPage from "./components/Questions/QuestionSolutionPage";
@@ -20,7 +21,7 @@ function App() {
   const { theme } = useTheme();
   return (
     <div id={theme}>
-      <Banner />
+      {/* <Banner /> */}
 
       <Router>
         <Routes>
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/quiz/:collection" element={<Quiz />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/courses" element={<Main />} />
+          <Route exact path="/video/:id" element={<VideoPage />} />
           {/* <Route
             exact
             path="/question/:id"
@@ -39,7 +41,6 @@ function App() {
       </Router>
 
       <Alert />
-      <Footer />
     </div>
   );
 }

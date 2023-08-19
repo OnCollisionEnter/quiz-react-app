@@ -22,11 +22,18 @@ const Container = ({ children, ...boxProps }) => {
         md: "75%",
       }}
       mt={5}
-      p={10}
+      p={{
+        base: 3,
+        sm: 3,
+        md: 5,
+        xl: 10,
+      }}
       shadow="2xl"
       rounded={{ base: "0px", md: "30px" }}
       mx="auto"
-      backgroundColor={theme === "dark" ? "#1a1e50" : "#ffc26a"}
+      //OLD ORANGE SCHEME
+      // backgroundColor={theme === "dark" ? "#1a1e50" : "#ffc26a"}
+      backgroundColor={theme === "dark" ? "#1a1e50" : "#F4F9F9"}
       color={theme === "dark" ? "white" : "black"}
       // gridTemplateColumns={{
       //   base: "repeat(1, 1fr)",
@@ -35,6 +42,7 @@ const Container = ({ children, ...boxProps }) => {
       transition=".5s"
       {...boxProps}
     >
+      {children}
       {/* <Text w="100%" bgColor="green">
           Content
         </Text>
@@ -47,7 +55,6 @@ const Container = ({ children, ...boxProps }) => {
         <Text w="100%" bgColor="red">
           Content
         </Text> */}
-      {children}
       {/* {isLargerThanMobile ? "lmfao" : "lmfao2"} */}
     </Box>
 

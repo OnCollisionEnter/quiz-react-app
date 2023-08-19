@@ -5,6 +5,8 @@ import { basicSchema } from "../../schemas";
 import useSubmit from "../../hooks/useSubmit";
 import { useAlertContext } from "../../context/AlertContext";
 import { useTheme } from "../../context/ThemeContext";
+import { Text, Button, Box } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 const LoginForm = () => {
   const { isLoading, response, submit } = useSubmit();
@@ -50,14 +52,23 @@ const LoginForm = () => {
   }, [response]);
 
   return (
-    <div className="basicform mt-3 mb-3">
+    <div className="basicform mb-3">
       <form onSubmit={handleSubmit} autoComplete="off">
+        <Button variant="link" colorScheme="gray">
+          <Box as={ArrowBackIcon} />
+          <Text as="a" href="/" fontWeight="thin" ml="2">
+            Geri dön
+          </Text>
+        </Button>
         <fieldset>
-          <h3 className="mb-4">Üye ol</h3>
+          <Text fontSize="4xl" fontWeight="bold" mb={2}>
+            Hemen üye ol
+          </Text>
 
           <div className="Field">
             <label htmlFor="email ">
-              Email <sup>*</sup>
+              E-Posta
+              {/* <sup>*</sup> */}
             </label>
             <input
               value={values.email}
@@ -66,7 +77,7 @@ const LoginForm = () => {
               name="email"
               id="email"
               type="email"
-              placeholder="Enter your e-mail"
+              placeholder="E-postanızı girin"
             />
             {errors.email && touched.email ? (
               <p className="FieldError">{errors.email}</p>
@@ -75,7 +86,7 @@ const LoginForm = () => {
             )}
           </div>
           <div className="Field">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">İsim</label>
             <input
               value={values.name}
               onChange={handleChange}
@@ -83,7 +94,7 @@ const LoginForm = () => {
               name="name"
               id="name"
               type="name"
-              placeholder="Enter your name"
+              placeholder="İsminizi girin"
             />
             {errors.name && touched.name ? (
               <p className="FieldError">{errors.name}</p>
@@ -92,9 +103,7 @@ const LoginForm = () => {
             )}
           </div>
           <div className="Field">
-            <label htmlFor="password">
-              Password <sup>*</sup>
-            </label>
+            <label htmlFor="password">Şifre</label>
             <input
               value={values.password}
               onChange={handleChange}
@@ -102,7 +111,7 @@ const LoginForm = () => {
               id="password"
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Şifrenizi girin"
             />
             {errors.password && touched.password ? (
               <p className="FieldError">{errors.password}</p>
@@ -111,9 +120,7 @@ const LoginForm = () => {
             )}
           </div>
           <div className="Field">
-            <label htmlFor="confirmPassword">
-              Confirm Password <sup>*</sup>
-            </label>
+            <label htmlFor="confirmPassword">Şifre Tekrar</label>
             <input
               value={values.confirmPassword}
               onChange={handleChange}
@@ -121,7 +128,7 @@ const LoginForm = () => {
               id="confirmPassword"
               type="password"
               name="confirmPassword"
-              placeholder="Re-enter password"
+              placeholder="Şifrenizi tekrar girin"
             />
             {errors.confirmPassword && touched.confirmPassword ? (
               <p className="FieldError">{errors.confirmPassword}</p>
@@ -130,11 +137,11 @@ const LoginForm = () => {
             )}
           </div>
           <button
-            className="submit-button"
+            className="submit-button mt-2"
             type="submit"
             disabled={isSubmitting}
           >
-            Submit
+            ÜYE OL
           </button>
         </fieldset>
       </form>

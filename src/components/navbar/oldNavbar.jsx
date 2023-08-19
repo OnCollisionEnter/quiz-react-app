@@ -9,14 +9,13 @@ import { Box } from "@chakra-ui/react";
 import Mobile from "./Mobile";
 
 const Navbar = () => {
-  const [isDesktop] = useMediaQuery("(min-width: 62em)");
-
+  const [isLargerThanMobile] = useMediaQuery("(min-width: 768px)");
   const navigate = useNavigate();
 
   return (
     // <nav class="navbar navbar-expand-lg navbar-dark navbar-bg mt-3 w-75 mx-auto rounded-5">
     <div>
-      {isDesktop ? (
+      {isLargerThanMobile ? (
         <Box
           as="nav"
           shadow="xl"
@@ -96,7 +95,7 @@ const Navbar = () => {
                     Giriş Yap
                   </a>
                 </li>
-                {isDesktop ? (
+                {isLargerThanMobile ? (
                   <li class="nav-item">
                     <a class="nav-link " href="#">
                       <Switch />

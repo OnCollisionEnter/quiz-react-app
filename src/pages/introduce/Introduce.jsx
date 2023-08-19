@@ -3,6 +3,9 @@ import Dropdown from "../../components/dropdown/Dropdown";
 import "./Introduce.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
+import ImageCard from "../../components/cards/imageCard";
+import { GridItem, Grid } from "@chakra-ui/react";
 
 const Introduce = () => {
   const collections = [
@@ -20,119 +23,88 @@ const Introduce = () => {
   };
 
   return (
-    <div className="mh-100vh">
-      <Navbar />
-      <div className="container introduce mx-auto mt-4 rounded-5 w-75 p-5 shadow-lg introduce-container">
-        {/* <i className="fa-brands fa-google"></i> */}
-        <h1>Teslim edilecek ödevi seçin</h1>
-        <Dropdown
-          data={collections}
-          collectionChange={collectionChange}
-          setCollectionChange={setCollectionChange}
-        />
-        <div onClick={startQuiz} className="btn btn-md btn-success">
-          Devam et
-        </div>
-      </div>
-
-      <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container">
-        <h2>Tekrar edebileceğiniz konular</h2>
-        <br />
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card card-video mt-3 ">
-              <div class="row no-gutters">
-                <div class="col-md-5">
-                  <div class="card-img-container">
-                    <img
-                      src="teacher1.jpg"
-                      class="card-img"
-                      alt="Teacher 1"
-                    ></img>
-                    <i class="fas fa-play play-icon"></i>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">Zamirler</h5>
-                    <p class="card-text">12 Dakika</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card card-video mt-3 ">
-              <div class="row no-gutters">
-                <div class="col-md-5">
-                  <div class="card-img-container">
-                    <img
-                      src="teacher1.jpg"
-                      class="card-img"
-                      alt="Teacher 1"
-                    ></img>
-                    <i class="fas fa-play play-icon"></i>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">Günlük İfadeler 1</h5>
-                    <p class="card-text">7 Dakika</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card card-video mt-3 ">
-              <div class="row no-gutters">
-                <div class="col-md-5">
-                  <div class="card-img-container">
-                    <img
-                      src="teacher1.jpg"
-                      class="card-img"
-                      alt="Teacher 1"
-                    ></img>
-                    <i class="fas fa-play play-icon"></i>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">Continuous Tense</h5>
-                    <p class="card-text">10 Dakika</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card card-video mt-3 ">
-              <div class="row no-gutters">
-                <div class="col-md-5">
-                  <div class="card-img-container">
-                    <img
-                      src="teacher1.jpg"
-                      class="card-img"
-                      alt="Teacher 1"
-                    ></img>
-                    <i class="fas fa-play play-icon"></i>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">İlk Cümleni Kur!</h5>
-                    <p class="card-text">5 Dakika</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div>
+      <div className="mh-100vh">
+        <Navbar />
+        <div className="container introduce mx-auto mt-4 rounded-5 w-75 p-5 shadow-lg introduce-container">
+          {/* <i className="fa-brands fa-google"></i> */}
+          <h1>Teslim edilecek ödevi seçin</h1>
+          <Dropdown
+            data={collections}
+            collectionChange={collectionChange}
+            setCollectionChange={setCollectionChange}
+          />
+          <div onClick={startQuiz} className="btn btn-md btn-success">
+            Devam et
           </div>
         </div>
+        <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container">
+          <h2>Tekrar edebileceğiniz konular</h2>
+          <br />
+          <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+            <GridItem>
+              <ImageCard
+                videoId={1}
+                videoTitle="Zamirler"
+                videoDescription="12 Dakika"
+                videoImage="https://picsum.photos/1920/1080"
+                videoProgress={20}
+              />
+            </GridItem>
+            <GridItem>
+              <ImageCard
+                videoId={2}
+                videoTitle="Günlük İfadeler 1"
+                videoDescription="12 Dakika"
+                videoImage="https://picsum.photos/1920/1080"
+                videoProgress={70}
+              />
+            </GridItem>
+            <GridItem>
+              <ImageCard
+                videoId={3}
+                videoTitle="Continuous Tense"
+                videoDescription="12 Dakika"
+                videoImage="https://picsum.photos/1920/1080"
+                videoProgress={0}
+              />
+            </GridItem>
+            <GridItem>
+              <ImageCard
+                videoId={4}
+                videoTitle="Zamirler"
+                videoDescription="12 Dakika"
+                videoImage="https://picsum.photos/1920/1080"
+                videoProgress={90}
+              />
+            </GridItem>
+          </Grid>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
 export default Introduce;
+
+// <div class="card card-video mt-3 ">
+//   <div class="row no-gutters">
+//     <div class="col-md-5">
+//       <div class="card-img-container">
+//         <img
+//           src="teacher1.jpg"
+//           class="card-img"
+//           alt="Teacher 1"
+//         ></img>
+//         <i class="fas fa-play play-icon"></i>
+//       </div>
+//     </div>
+//     <div class="col-md-7">
+//       <div class="card-body">
+//         <h5 class="card-title">İlk Cümleni Kur!</h5>
+//         <p class="card-text">5 Dakika</p>
+//       </div>
+//     </div>
+//   </div>
+// </div>

@@ -9,7 +9,9 @@
 
 #light .navbar-bg {
   /* background-color: rgb(255, 196, 157); */
-  background-color: #ffc26a;
+  /*OLD ORANGE SCHEME*/
+  /* background-color: #ffc26a; */
+  background-color: #f4f9f9;
   transition: 0.5s;
 }
 #dark .navbar-bg {

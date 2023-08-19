@@ -14,12 +14,21 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { FaPlay } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const ImageCard = ({ videoTitle, videoImage, videoProgress }) => {
+const ImageCard = ({ videoId, videoTitle, videoImage, videoProgress }) => {
+  const navigate = useNavigate();
+  const videoClickHandle = (videoId) => {
+    navigate(`/video/${videoId}`);
+  };
+
   const [isLargerThanMobile] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Box
+      _hover={{
+        boxShadow: "0 0 6px white",
+      }}
       mt={3}
       borderWidth="1px"
       borderRadius="xl"
@@ -29,6 +38,8 @@ const ImageCard = ({ videoTitle, videoImage, videoProgress }) => {
       bgPosition="center"
       shadow="2xl"
       position="relative"
+      cursor="pointer"
+      onClick={() => videoClickHandle(videoId)}
     >
       {isLargerThanMobile ? (
         ""

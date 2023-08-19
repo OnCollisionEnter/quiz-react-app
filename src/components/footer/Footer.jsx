@@ -3,7 +3,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="w-100 custom-footer mt-3">
+    <footer className="w-100 custom-footer shadow-lg">
       <div className="container w-75 m-auto ">
         <div className="row">
           <div className="col text-start">webdev-kemal/react-quiz-app/</div>
