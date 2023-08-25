@@ -11,9 +11,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 const store = configureStore();
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 // //CALL ACTION
 // const question1 = store.dispatch(

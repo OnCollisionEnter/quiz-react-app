@@ -29,7 +29,7 @@ const Container = ({ children, ...boxProps }) => {
         xl: 10,
       }}
       shadow="2xl"
-      rounded={{ base: "0px", md: "30px" }}
+      borderRadius={{ base: "0px", md: "30px" }}
       mx="auto"
       //OLD ORANGE SCHEME
       // backgroundColor={theme === "dark" ? "#1a1e50" : "#ffc26a"}

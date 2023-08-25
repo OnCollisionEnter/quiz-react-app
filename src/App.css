@@ -4,11 +4,12 @@ body {
   padding: 0px;
   /* height: 100vh; */
   font-family: "Red Hat Display", sans-serif;
-  background-color: #ffdba9;
+  /* background-color: #ffdba9; */
+  background-color: #323ab7;
 }
 
 .mh-100vh {
-  min-height: 95vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -52,4 +53,28 @@ body {
   height: 30%; /* You can adjust this value to change how tall the shadow is */
   box-shadow: inset 0px 15px 10px -10px rgba(0, 0, 0, 0.5); /* Adjust the shadow values as needed */
   pointer-events: none; /* Ensure the pseudo-element doesn't interfere with any interactions */
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+    /* color: rgb(185, 185, 185); */
+  }
+}
+
+.translateXY {
+  transform: translate(-50%, -50%);
+  animation: spin 0.6s linear infinite !important;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, 0%);
+  }
 }

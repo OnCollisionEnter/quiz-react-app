@@ -33,8 +33,7 @@ const quizQuestions = [
   },
   {
     id: 4,
-    question:
-      "Make this qweqweqweqweqweqweqqqqqqqqqqq qqqqqq qqq  qqqqqqqq qqqqqqqqqqqqqqphrase negative: 'She is fat.'",
+    question: "Make this phrase negative: 'She is fat.'",
     choices: {
       a: "She is not fat.",
       b: "She is no fat.",
@@ -61,6 +60,7 @@ const quizReducer = (state = quizQuestions, action) => {
   switch (action.type) {
     case "ADD_QUESTION":
       return [...state, action.questionData];
+    //payload olması lazım... questionData yanlış
     case "DELETE_QUESTION":
       return state.filter(({ id }) => {
         return id !== action.id;

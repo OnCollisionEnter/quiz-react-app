@@ -12,6 +12,8 @@ import Login from "./pages/login/Login";
 import Alert from "./components/alert/Alert";
 import Main from "./pages/courses/Main";
 import VideoPage from "./pages/video/VideoPage";
+import Course from "./pages/course/Course";
+import Cart from "./pages/cart/Cart";
 
 // import { ChakraProvider } from "@chakra-ui/react";
 
@@ -32,6 +34,9 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/courses" element={<Main />} />
           <Route exact path="/video/:id" element={<VideoPage />} />
+          <Route exact path="/course/:id" element={<Course />} />
+          <Route path="/cart/:id?" element={<Cart />} />
+          <Route path="/cart/:id" element={<Cart />} />
           {/* <Route
             exact
             path="/question/:id"

@@ -6,6 +6,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import ImageCard from "../../components/cards/imageCard";
 import { GridItem, Grid } from "@chakra-ui/react";
+import Container from "../../components/containers/container";
 
 const Introduce = () => {
   const collections = [
@@ -26,8 +27,9 @@ const Introduce = () => {
     <div>
       <div className="mh-100vh">
         <Navbar />
-        <div className="container introduce mx-auto mt-4 rounded-5 w-75 p-5 shadow-lg introduce-container">
-          {/* <i className="fa-brands fa-google"></i> */}
+        {/* <div className="container introduce mx-auto mt-4 rounded-5 w-75 p-5 shadow-lg introduce-container"> */}
+        {/* <i className="fa-brands fa-google"></i> */}
+        <Container>
           <h1>Teslim edilecek ödevi seçin</h1>
           <Dropdown
             data={collections}
@@ -37,16 +39,18 @@ const Introduce = () => {
           <div onClick={startQuiz} className="btn btn-md btn-success">
             Devam et
           </div>
-        </div>
-        <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container">
+        </Container>
+
+        {/* <div class="container w-75 mt-4 p-5 rounded-5 shadow-lg default-container"> */}
+        <Container>
           <h2>Tekrar edebileceğiniz konular</h2>
           <br />
-          <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+          <Grid templateColumns="repeat(3, 1fr)" gap={3}>
             <GridItem>
               <ImageCard
                 videoId={1}
                 videoTitle="Zamirler"
-                videoDescription="12 Dakika"
+                videoCap="12 Dakika"
                 videoImage="https://picsum.photos/1920/1080"
                 videoProgress={20}
               />
@@ -55,7 +59,7 @@ const Introduce = () => {
               <ImageCard
                 videoId={2}
                 videoTitle="Günlük İfadeler 1"
-                videoDescription="12 Dakika"
+                videoCap="12 Dakika"
                 videoImage="https://picsum.photos/1920/1080"
                 videoProgress={70}
               />
@@ -64,7 +68,7 @@ const Introduce = () => {
               <ImageCard
                 videoId={3}
                 videoTitle="Continuous Tense"
-                videoDescription="12 Dakika"
+                videoCap="12 Dakika"
                 videoImage="https://picsum.photos/1920/1080"
                 videoProgress={0}
               />
@@ -73,13 +77,13 @@ const Introduce = () => {
               <ImageCard
                 videoId={4}
                 videoTitle="Zamirler"
-                videoDescription="12 Dakika"
+                videoCap="12 Dakika"
                 videoImage="https://picsum.photos/1920/1080"
                 videoProgress={90}
               />
             </GridItem>
           </Grid>
-        </div>
+        </Container>
       </div>
       <Footer />
     </div>

@@ -27,12 +27,14 @@
 
 .navbar-brand {
   color: #ffc26a;
+
   font-family: "Red Hat Display", sans-serif;
   font-weight: 800;
   font-size: x-large;
 }
 #light .navbar-brand {
-  color: #343dc0;
+  /* color: #343dc0; */
+  color: #ff6347;
 }
 
 .spans {
@@ -47,6 +49,11 @@
   color: #000000;
 }
 
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /* navlinks */
 .navlink-hover {
   border: 1px solid rgba(0, 0, 0, 0);

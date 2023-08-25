@@ -50,7 +50,8 @@ const HomePage = () => {
             )}
             <ImageCard
               videoId={533533}
-              videoTitle="Past Tense"
+              videoTitle="İzlemeye devam et!"
+              videoCap="Past Tense"
               videoImage="url('teacher1.jpg')"
               videoProgress={40}
             />
@@ -84,6 +85,7 @@ const HomePage = () => {
           gridTemplateRows="1fr"
           gridGap={0}
           transition=".5s"
+          mb={5}
         >
           <h2>Kelime dağarcığını genişlet!</h2>
           <br />

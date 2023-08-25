@@ -16,7 +16,7 @@ import {
 import { CloseIcon } from "@chakra-ui/icons";
 
 import { useNavigate } from "react-router-dom";
-
+import { HiPlus } from "react-icons/hi";
 const CourseCard = ({
   courseId,
   courseTitle,
@@ -35,7 +35,6 @@ const CourseCard = ({
 
   const courseClickHandle = (courseId) => {
     navigate(`/course/${courseId}`);
-    console.log("course clicked with ID:", courseId);
   };
 
   return (
@@ -44,19 +43,41 @@ const CourseCard = ({
       borderColor="gray.300"
       p={2}
       rounded="md"
+      // maxHeight="150px"
+      minHeight="260px"
+      maxHeight="260px"
       _hover={{ padding: 0, cursor: "pointer" }}
       transition="all 0.2s ease"
       onClick={() => courseClickHandle(courseId)}
+      overflow="hidden"
     >
       <Box height="150px" width="100%" pos="relative">
-        <Image
-          className="inner-shadow"
-          src={courseImage}
-          w="100%"
-          h="100%"
-          objectFit="cover"
-          rounded="md"
-        ></Image>
+        {courseImage ? (
+          <Image
+            className="inner-shadow"
+            src={courseImage}
+            w="100%"
+            h="100%"
+            objectFit="cover"
+            rounded="md"
+          ></Image>
+        ) : (
+          <Box
+            bg="black"
+            color="white"
+            fontSize="2xl"
+            textAlign="center"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            fontWeight="bold"
+            w="100%"
+            h="100%"
+            rounded="md"
+          >
+            Akademi Plus
+          </Box>
+        )}
         <Tag
           size="lg"
           colorScheme="gray"

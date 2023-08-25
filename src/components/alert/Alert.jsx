@@ -4,6 +4,8 @@ import {
   AlertDialogContent,
   AlertDialogHeader,
   AlertDialogOverlay,
+  AlertDialogFooter,
+  Button,
 } from "@chakra-ui/react";
 import { useAlertContext } from "../../context/AlertContext";
 import { useRef } from "react";
@@ -17,20 +19,6 @@ function Alert() {
   const isSuccess = type === "success";
 
   return (
-    // <div className="position-absolute top-50 start-50 translate-middle ">
-    //   {isOpen && (
-    //     <div className="AlertDialog bg-danger color-black p-3 shadow-lg rounded-3">
-    //       <div className="display">QWE</div>
-    //       <p>
-    //         <strong>Submitted!</strong>
-    //       </p>
-    //       <button className="btn btn-md btn-secondary" onClick={onClose}>
-    //         Close
-    //       </button>
-    //     </div>
-    //   )}
-    // </div>
-
     <AlertDialog
       isOpen={isOpen}
       leastDestructiveRef={cancelRef}
@@ -38,13 +26,21 @@ function Alert() {
     >
       <AlertDialogOverlay>
         <AlertDialogContent
-          py={4}
-          backgroundColor={isSuccess ? "#81C784" : "#FF8A65"}
+        // py={4}
+        // backgroundColor={isSuccess ? "#81C784" : "#FF8A65"}
         >
-          <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            {isSuccess ? "All good!" : "Oops!"}
+          <AlertDialogHeader fontSize="2xl" fontWeight="bold">
+            {isSuccess ? "Başarılı!" : "Bir sorun oluştu!"}
           </AlertDialogHeader>
           <AlertDialogBody>{message}</AlertDialogBody>
+          <AlertDialogFooter>
+            <Button as="a" href="/login" ref={cancelRef} onClick={onClose}>
+              Devam et
+            </Button>
+            {/* <Button colorScheme="red" onClick={onClose} ml={3}>
+              Delete
+            </Button> */}
+          </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialogOverlay>
     </AlertDialog>
@@ -52,3 +48,17 @@ function Alert() {
 }
 
 export default Alert;
+
+// // <div className="position-absolute top-50 start-50 translate-middle ">
+// //   {isOpen && (
+// //     <div className="AlertDialog bg-danger color-black p-3 shadow-lg rounded-3">
+// //       <div className="display">QWE</div>
+// //       <p>
+// //         <strong>Submitted!</strong>
+// //       </p>
+// //       <button className="btn btn-md btn-secondary" onClick={onClose}>
+// //         Close
+// //       </button>
+// //     </div>
+// //   )}
+// // </div>

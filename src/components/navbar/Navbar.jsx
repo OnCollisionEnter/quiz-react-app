@@ -3,8 +3,13 @@ import Switch from "./Switch";
 import "./navbar.css";
 import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
-import { useMediaQuery } from "@chakra-ui/react";
-
+import { useMediaQuery, Text, Button } from "@chakra-ui/react";
+import {
+  MdShoppingCart,
+  MdPerson2,
+  MdSchool,
+  MdHomeFilled,
+} from "react-icons/md";
 import { Box } from "@chakra-ui/react";
 import Mobile from "./Mobile";
 
@@ -36,11 +41,24 @@ const Navbar = () => {
           mx="auto"
         >
           <div class="container-fluid custom-navbar">
-            <a class="navbar-brand" href="/">
-              <span class="spans">&#123;</span>
-              ReactLingot
-              <span class="spans">&#125;</span>
-            </a>
+            <Text
+              onClick={() => {
+                navigate("/");
+              }}
+              cursor="pointer"
+              p={1}
+              bg="black"
+              borderRadius={{ base: "20px 0px 20px 0px" }}
+              fontWeight={800}
+              fontSize="xl"
+              color="white"
+              m={0}
+              display="inline-block" // this is the line to add
+            >
+              {/* <span class="spans">&#123;</span> */}
+              &nbsp;Göksoy Akademi&nbsp;
+              {/* <span class="spans">&#125;</span> */}
+            </Text>
             <button
               class="navbar-toggler"
               type="button"
@@ -49,8 +67,9 @@ const Navbar = () => {
               aria-controls="navbarNav"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              color="#323AB7"
             >
-              <span class="navbar-toggler-icon"></span>
+              {/* <span class="navbar-toggler-icon"></span> */}
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
@@ -68,7 +87,8 @@ const Navbar = () => {
                     class="nav-link navlink-hover"
                     onClick={() => navigate("/courses")}
                   >
-                    Derslerim
+                    Kurslar&ensp;
+                    <MdSchool />
                   </a>
                 </li>
                 {/* <li class="nav-item">
@@ -82,29 +102,43 @@ const Navbar = () => {
                     class="nav-link navlink-hover position-relative"
                     onClick={() => navigate("/dashboard")}
                   >
-                    Öğretmen
-                    <span class="badge bg-warning ms-1 text-dark p-1 badge-color">
-                      admin
+                    Quiz
+                    <span class="badge bg-warning text-dark p-1 badge-color ms-2">
+                      plus
                     </span>
                   </a>
                 </li>
-                <li class="nav-item  me-5">
-                  <a
-                    class="nav-link navlink-hover"
-                    onClick={() => navigate("/login")}
-                  >
-                    Giriş Yap
-                  </a>
-                </li>
-                {isDesktop ? (
+                {/* {isDesktop ? (
                   <li class="nav-item">
                     <a class="nav-link " href="#">
                       <Switch />
                     </a>
                   </li>
+                ) : ( 
+                 <p></p>
+                )} */}
+                {isDesktop ? (
+                  <li class="nav-item  me-4">
+                    <a
+                      class="nav-link navlink-hover"
+                      onClick={() => navigate("/basket")}
+                    >
+                      Sepetim&ensp;
+                      <MdShoppingCart />
+                    </a>
+                  </li>
                 ) : (
                   <p></p>
                 )}
+                <li class="nav-item  me-4">
+                  <a
+                    class="nav-link navlink-hover"
+                    onClick={() => navigate("/login")}
+                  >
+                    Giriş Yap&ensp;
+                    <MdPerson2 />
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

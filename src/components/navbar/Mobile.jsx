@@ -19,7 +19,7 @@ import {
 
 const socials = [
   {
-    name: "ReactLingot",
+    name: "Göksoy Akademi",
     url: "lmfao",
   },
 ];
@@ -32,7 +32,7 @@ const Mobile = ({ handleClick }) => {
   return (
     <Grid
       bg={theme === "light" ? "#FFC26A" : "#131746"}
-      templateColumns="1fr 5fr 1fr"
+      templateColumns="6fr 3fr 1fr"
       gap={6}
       px={8}
       py={4}
@@ -51,9 +51,10 @@ const Mobile = ({ handleClick }) => {
         md: "30px",
       }}
       mx="auto"
+      shadow="lg"
     >
       {/* Centered Text logo */}
-      <Text
+      {/* <Text
         as="a"
         fontSize="2xl"
         textAlign="center"
@@ -62,11 +63,30 @@ const Mobile = ({ handleClick }) => {
         href="/"
       >
         <span class="spans">&#123;</span>
-        ReactLingot
+        Göksoy Akademi
         <span class="spans">&#125;</span>
-      </Text>
+      </Text> */}
+      <Box>
+        <Text
+          onClick={() => {
+            navigate("/");
+          }}
+          p={1}
+          bg="black"
+          borderRadius={{ base: "20px 0px 20px 0px" }}
+          fontWeight={700}
+          fontSize="xl"
+          color="white"
+          m={0}
+          display="inline-block" // this is the line to add
+        >
+          {/* <span class="spans">&#123;</span> */}
+          &nbsp;Göksoy Akademi&nbsp;
+          {/* <span class="spans">&#125;</span> */}
+        </Text>
+      </Box>
       {/* Empty column */}
-      <div />
+      <div></div>
       <Drawer
         placement="top"
         onClose={onClose}
@@ -77,19 +97,21 @@ const Mobile = ({ handleClick }) => {
         <DrawerOverlay>
           <DrawerContent
             // transition=".3s"
-            bg={theme === "light" ? "#FFC26A" : "#323AB7"}
+            // bg={theme === "light" ? "#FFC26A" : "#323AB7"}
+            bg={theme === "light" ? "#F1F6F9" : "#323AB7"}
             p={3}
             spacing={2}
           >
             <DrawerCloseButton
-              color={theme === "light" ? "#323AB7" : "#FFC26A"}
+              // color={theme === "light" ? "#323AB7" : "#FFC26A"}
+              color={theme === "light" ? "#000000" : "#FFC26A"}
               p={5}
               size="2xl"
             />
 
             <DrawerBody
               fontSize="2xl"
-              color={theme === "light" ? "#323AB7" : "#FFFFFF"}
+              color={theme === "light" ? "#000000" : "#FFFFFF"}
             >
               <VStack py={10} spacing={4} h="100%">
                 {socials.map((item) => (
@@ -126,7 +148,7 @@ const Mobile = ({ handleClick }) => {
                   fontSize="23px"
                   cursor="pointer"
                 >
-                  Kurslar
+                  Eğitimlerimiz
                 </Text>
                 <Text
                   as="a"
@@ -148,7 +170,7 @@ const Mobile = ({ handleClick }) => {
                 >
                   Giriş Yap
                 </Text>
-                <Text
+                {/* <Text
                   as="a"
                   w="100%"
                   textalign="left"
@@ -159,11 +181,17 @@ const Mobile = ({ handleClick }) => {
                   cursor="pointer"
                 >
                   Karanlık Mod
-                </Text>
+                </Text> */}
                 <Spacer />
-                <Text textalign="left" w="100%" fontSize="18px">
+                {/* <Text
+                  mb="0px"
+                  textalign="left"
+                  w="100%"
+                  mt="50px"
+                  fontSize="18px"
+                >
                   ReactLingot
-                </Text>
+                </Text> */}
               </VStack>
             </DrawerBody>
           </DrawerContent>
@@ -175,7 +203,7 @@ const Mobile = ({ handleClick }) => {
           <FontAwesomeIcon
             icon={faBars}
             size="2x"
-            color={theme === "light" ? "#ffffff" : "#ffffff"}
+            color={theme === "light" ? "#000000" : "#ffffff"}
           />
         }
         aria-label="Toggle navigation"

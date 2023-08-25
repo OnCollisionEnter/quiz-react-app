@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Container from "../../components/containers/container";
 
 import CourseCard from "../../components/cards/courseCard";
 import ImageCard from "../../components/cards/imageCard";
-
+import { FaSearch } from "react-icons/fa";
+import { useTheme } from "../../context/ThemeContext";
 import {
   Input,
   InputGroup,
@@ -12,15 +13,7 @@ import {
   Box,
   Grid,
   GridItem,
-} from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
-import { useTheme } from "../../context/ThemeContext";
-
-import {
   Button,
-  ButtonGroup,
-  Flex,
   Text,
   Accordion,
   AccordionItem,
@@ -30,6 +23,7 @@ import {
   CheckboxGroup,
   Checkbox,
   Stack,
+  Spinner,
 } from "@chakra-ui/react";
 
 import { StarIcon } from "@chakra-ui/icons";
@@ -38,50 +32,62 @@ import AppsIcon from "@mui/icons-material/Apps";
 import GradeIcon from "@mui/icons-material/Grade";
 import Footer from "../../components/footer/Footer";
 
+// alert context
+import { useAlertContext } from "../../context/AlertContext";
+
+// import axios from "axios";
+import { ListCourses } from "../../actions/courses";
+import { useDispatch, useSelector } from "react-redux";
+
 const Main = () => {
   const { isDark } = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
+  // const [coursesData, setCoursesData] = useState([]);
+  const { onOpen } = useAlertContext();
+
+  const dispatch = useDispatch();
+  const coursesList = useSelector((store) => store.courseStore);
+  const { loading, error, courses } = coursesList;
+
+  // const getCourses = () => {
+  //   axios
+  //     .get("http://127.0.0.1:8000/api/courses/")
+  //     .then((response) => {
+  //       setCoursesData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("There was an error fetching the courses:", error);
+  //     });
+  // };
+
+  useEffect(() => {
+    dispatch(ListCourses());
+    // async function getCourses() {
+    //   const response = await axios.get("http://127.0.0.1:8000/api/courses/");
+    //   setCoursesData(response.data);
+    // }
+    // getCourses();
+  }, []);
+
+  useEffect(() => {
+    if (error) {
+      onOpen("error", error);
+    }
+  }, [error]);
 
   const handleSearch = (event) => {
     // Handle search here
     event.preventDefault(); // prevent form submission
     // Handle search here
-    console.log(searchTerm);
+    // console.log(searchTerm);
     setSearchTerm(""); // reset search term
   };
 
   return (
-    <div className="mh-100vh">
-      <Navbar />
-
-      {/* <form onSubmit={handleSearch}>
-        <InputGroup
-          mt={5}
-          width={{
-            base: "92%",
-            md: "75%",
-          }}
-          mx="auto"
-        >
-          <InputLeftElement pointerEvents="none" children={<FaSearch />} />
-          <Input
-            color={isDark === "dark" ? "white" : "black"}
-            shadow="xl"
-            rounded="30px"
-            fontSize="2xl"
-            border={
-              isDark === "dark" ? "2px solid #FFC26A" : "2px solid #343DC0"
-            }
-            p={6}
-            paddingLeft={14}
-            placeholder="Aradığınız konuyu yazın..."
-            value={searchTerm}
-            onChange={(event) => setSearchTerm(event.target.value)}
-          />
-        </InputGroup>
-      </form> */}
+    <div>
       <div className="mh-100vh">
-        <Container>
+        <Navbar />
+        <Container mb={5}>
           <Grid templateColumns="repeat(6, 1fr)">
             <GridItem as="aside" colSpan={{ base: 6, lg: 2, xl: 1 }}>
               <Button
@@ -200,7 +206,25 @@ const Main = () => {
                 </AccordionItem>
               </Accordion>
             </GridItem>
-            <GridItem colSpan={{ base: 6, lg: 4, xl: 5 }} p={0}>
+            <GridItem
+              colSpan={{ base: 6, lg: 4, xl: 5 }}
+              p={0}
+              pos="relative"
+              minH="250px"
+            >
+              {loading && (
+                <Spinner
+                  pos="absolute"
+                  left="50%"
+                  top="60%"
+                  transform="translate(-50%, -50%)"
+                  thickness="4px"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                  className="translateXY"
+                />
+              )}
               <InputGroup
                 mt={{
                   base: 2,
@@ -221,11 +245,10 @@ const Main = () => {
                 <Input rounded="30px" type="tel" placeholder="Kurs arayın" />
               </InputGroup>
 
-              <CheckboxGroup colorScheme="blue" defaultValue={["ingilizce"]}>
+              <CheckboxGroup colorScheme="blue" defaultValue={["videoegitim"]}>
                 <Stack spacing={[1, 5]} direction={["column", "row"]}>
-                  <Checkbox value="ingilizce">İngilizce</Checkbox>
-                  <Checkbox value="fransizca">Fransızca</Checkbox>
-                  <Checkbox value="almanca">Almanca</Checkbox>
+                  <Checkbox value="videoegitim">Video Eğitim</Checkbox>
+                  <Checkbox value="canliegitim">Canlı Eğitim</Checkbox>
                 </Stack>
               </CheckboxGroup>
 
@@ -238,42 +261,41 @@ const Main = () => {
                 }}
                 gap={4}
               >
-                <CourseCard
+                {loading ? null : error ? (
+                  <h2>{error}</h2>
+                ) : (
+                  courses.map((item) => {
+                    return (
+                      <CourseCard
+                        key={item._id}
+                        courseId={item._id}
+                        courseTitle={item.title}
+                        courseDescription={item.description}
+                        courseImage="https://picsum.photos/1920/1080"
+                        authorName={item.author}
+                        authorProfile="https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so"
+                        courseDate={item.date}
+                      />
+                    );
+                  })
+                )}
+                {/* ekstra fake kartlar */}
+                {/* {/* <CourseCard
+                  courseId="124"
                   courseTitle="A1 İngilizce"
                   courseImage="https://picsum.photos/1920/1080"
                   authorName="Ali Haydar Göksoy"
                   authorProfile="https://picsum.photos/1920/1080"
                   courseDescription="lmfwqdwqd qweqwe dqw q w ao"
-                />
+                /> */}
                 <CourseCard
-                  courseTitle="A1 İngilizce"
-                  courseImage="teacher1.jpg"
-                  authorName="Ali Haydar Göksoy"
+                  courseId="121"
+                  courseTitle="Plus Üyelik"
+                  // courseImage="teacher1.jpg"
+                  authorName="Göksoy Akademi"
                   authorProfile="https://picsum.photos/1920/1080"
-                  courseDescription="lmfao qwewqe qwe qwe qewqwe "
+                  courseDescription="Tüm kurslara ve quizlere erişim sağlayın!"
                 />
-                <CourseCard
-                  courseTitle="A1 İngilizce"
-                  courseImage="teacher1.jpg"
-                  authorName="Ali Haydar Göksoy"
-                  authorProfile="https://picsum.photos/1920/1080"
-                  courseDescription="lmfao qwdqwqeqwe  qqwe wdqdw"
-                />
-                <CourseCard
-                  courseTitle="A1 İngilizce"
-                  courseImage="teacher1.jpg"
-                  authorName="Ali Haydar Göksoy"
-                  authorProfile="https://picsum.photos/1920/1080"
-                  courseDescription="lmqwdf qweqwe qwe ao"
-                />
-                <CourseCard
-                  courseTitle="A1 İngilizce"
-                  courseImage="https://picsum.photos/1920/1080"
-                  authorName="Ali Haydar Göksoy"
-                  authorProfile="https://picsum.photos/1920/1080"
-                  courseDescription="lmfa qweqwe qwewqe eo"
-                />
-
                 {/* <ImageCard
                   videoTitle="Past Tense"
                   videoImage="url('teacher1.jpg')"

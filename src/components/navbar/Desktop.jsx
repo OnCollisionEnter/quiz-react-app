@@ -28,7 +28,7 @@ const Desktop = () => {
       <div class="container-fluid custom-navbar">
         <a class="navbar-brand" href="/">
           <span class="spans">&#123;</span>
-          ReactLingot
+          ReactLingrrt
           <span class="spans">&#125;</span>
         </a>
         <button
@@ -39,8 +39,9 @@ const Desktop = () => {
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          color="#323AB7"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon "></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
@@ -58,7 +59,7 @@ const Desktop = () => {
                 class="nav-link navlink-hover"
                 onClick={() => navigate("/courses")}
               >
-                Derslerim
+                Dersler
               </a>
             </li>
             {/* <li class="nav-item">

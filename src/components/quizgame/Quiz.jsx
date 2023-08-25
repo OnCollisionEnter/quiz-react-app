@@ -77,7 +77,6 @@ const QuizGame = (props) => {
         }
       }
 
-      console.log("LMAO BOOY");
       setCurrQuestion(currQuestion + 1);
     }
     //check if we're on last question
@@ -167,7 +166,7 @@ const QuizGame = (props) => {
 const mapStateToProps = (state) => {
   return {
     //quizQuestions yerine başka isim de verebiliriz)
-    quizQuestions: state,
+    quizQuestions: state.quiz,
   };
 };
 

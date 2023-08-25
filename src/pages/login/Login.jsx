@@ -1,6 +1,5 @@
 import React from "react";
 import LoginForm from "../../components/forms/LoginForm";
-import Navbar from "../../components/navbar/Navbar";
 import {
   Box,
   Grid,
@@ -33,29 +32,45 @@ const Login = () => {
               objectFit="cover"
             ></Image>
             {isLargerThan1280 && (
-              <Box
+              // <Box
+              //   className="floatingLoginIntro"
+              //   bg="white"
+              //   color="black"
+              //   px={9}
+              //   pr="150px"
+              //   shadow="2xl"
+              //   rounded="md"
+              // >
+              //   <Text
+              //     fontWeight="bold"
+              //     fontSize="6xl"
+              //     // textShadow="1px 1px 15px rgba(0, 0, 0, 0.5)"
+              //     m="0px"
+              //   >
+              //     Göksoy Akademi
+              //   </Text>
+              //   <Text
+              //     fontSize="4xl"
+              //     // textShadow="1px 1px 15px rgba(0, 0, 0, 0.5)"
+              //   >
+              //     Hızlı öğrenime fırsat ver!
+              //   </Text>
+              // </Box>
+              <Text
                 className="floatingLoginIntro"
-                bg="white"
-                color="black"
-                px={9}
-                pr="150px"
-                shadow="2xl"
+                p={4}
+                bg="black"
+                borderRadius={{ base: "20px 0px 20px 0px" }}
+                fontWeight={700}
+                fontSize="50px"
+                color="white"
+                m={0}
+                fontFamily="Red Hat Display"
               >
-                <Text
-                  fontWeight="bold"
-                  fontSize="6xl"
-                  // textShadow="1px 1px 15px rgba(0, 0, 0, 0.5)"
-                  m="0px"
-                >
-                  ReactLingot
-                </Text>
-                <Text
-                  fontSize="4xl"
-                  // textShadow="1px 1px 15px rgba(0, 0, 0, 0.5)"
-                >
-                  Hızlı öğrenime fırsat ver!
-                </Text>
-              </Box>
+                {/* <span class="spans">&#123;</span> */}
+                &nbsp;Göksoy Akademi&nbsp;
+                {/* <span class="spans">&#125;</span> */}
+              </Text>
             )}
           </GridItem>
         )}

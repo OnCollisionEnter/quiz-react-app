@@ -1,11 +1,25 @@
 import React from "react";
 import "./footer.css";
+import { Text } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
     <footer className="w-100 custom-footer shadow-lg">
-      <div className="container w-75 m-auto ">
-        <div className="row">
+      <div className="container w-75 m-auto d-flex justify-content-center">
+        <Text
+          p={1}
+          bg="black"
+          borderRadius={{ base: "20px 0px 20px 0px" }}
+          fontWeight={700}
+          fontSize="xl"
+          color="white"
+          m={0}
+        >
+          {/* <span class="spans">&#123;</span> */}
+          &nbsp;Göksoy Akademi&nbsp;
+          {/* <span class="spans">&#125;</span> */}
+        </Text>
+        {/* <div className="row">
           <div className="col text-start">webdev-kemal/react-quiz-app/</div>
           <div className="col text-center">Made with ❤️ by mkod.</div>
           <div className="col text-end">
@@ -17,8 +31,8 @@ const Footer = () => {
               github
             </a>{" "}
             | linkedin{" "}
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         {/* <div className="row">
           <div className="col text-start">One of three columns</div>
           <div className="col text-center">One of three columns</div>
