@@ -1,13 +1,13 @@
 .custom-footer {
   padding: 20px;
-
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
 }
 
 #light .custom-footer {
   /* background-color: rgb(255, 196, 157); */
-  background-color: #ffc26a;
+  /*OLD ORANGE SCHEME*/
+  /* background-color: #ffc26a; */
+  background-color: #f4f9f9;
   color: #262629;
   font-weight: bold;
   transition: 0.5s;

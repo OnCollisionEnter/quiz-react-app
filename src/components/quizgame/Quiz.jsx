@@ -2,10 +2,6 @@ import React, { useState, useContext } from "react";
 import { QuizContext } from "../../context/QuizContext";
 import { connect } from "react-redux";
 
-//to add: disable other choices once we've choosen wrong answer
-//to add: when we go to previous question it should still show us if our answer was correct or false
-//maybe edit previous button and set isCorrect to true if isAnswered is true for that specific question?
-
 const QuizGame = (props) => {
   const { score, setScore, setGameState } = useContext(QuizContext);
   const [currQuestion, setCurrQuestion] = useState(0);
@@ -46,6 +42,8 @@ const QuizGame = (props) => {
           newState[currQuestion] = "correct";
           return newState;
         });
+
+        setScore(score + 1);
       }
     } else {
       setCorrectButtonClass((prevState) => {
@@ -68,8 +66,6 @@ const QuizGame = (props) => {
       if (questionsArray[currQuestion].correctAnswer === optionChosen) {
         //check if the question was answered before
         if (!isAnswered[currQuestion]) {
-          setScore(score + 1);
-
           setIsAnswered((prevState) => {
             const newState = [...prevState];
             newState[currQuestion] = true;
@@ -81,17 +77,12 @@ const QuizGame = (props) => {
         }
       }
 
-      console.log("LMAO BOOY");
       setCurrQuestion(currQuestion + 1);
     }
     //check if we're on last question
     else if (currQuestion === questionsArray.length - 1) {
       //check if the question was answered before
       if (!isAnswered[currQuestion]) {
-        //check if answered correctly
-        if (questionsArray[currQuestion].correctAnswer === optionChosen) {
-          setScore(score + 1);
-        }
         setIsAnswered((prevState) => {
           const newState = [...prevState];
           newState[currQuestion] = true;
@@ -118,7 +109,7 @@ const QuizGame = (props) => {
   useState(console.log(optionChosen), [optionChosen]);
 
   return (
-    <div className="container container-modified m-auto w-75">
+    <div className="container m-auto w-75 h-320">
       <div className="d-flex justify-content-between">
         <div
           onClick={prevQuestion}
@@ -128,10 +119,13 @@ const QuizGame = (props) => {
               : "fw-bold question-nav"
           }
         >
-          LAST
+          ÖNCEKİ
         </div>
+        {isCorrect[currQuestion] === "correct" && (
+          <div className=""> DOĞRU CEVAP!</div>
+        )}
         <div onClick={nextQuestion} className="fw-bold question-nav">
-          {currQuestion === questionsArray.length - 1 ? "SUBMIT" : "NEXT"}
+          {currQuestion === questionsArray.length - 1 ? "--BİTİR--" : "SONRAKİ"}
         </div>
       </div>
       <h2 className="quizGame">
@@ -151,9 +145,6 @@ const QuizGame = (props) => {
                 >
                   {choiceValue}
                 </div>
-                {isCorrect[currQuestion] === "correct" && (
-                  <p>CORRECT ANSWER!</p>
-                )}
               </div>
             ) : (
               <div>
@@ -175,7 +166,7 @@ const QuizGame = (props) => {
 const mapStateToProps = (state) => {
   return {
     //quizQuestions yerine başka isim de verebiliriz)
-    quizQuestions: state,
+    quizQuestions: state.quiz,
   };
 };
 

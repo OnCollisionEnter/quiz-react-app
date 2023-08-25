@@ -5,15 +5,21 @@ const MainMenu = () => {
   const { gameState, setGameState } = useContext(QuizContext);
 
   return (
-    <div className="menu ">
-      <button
-        className=" btn mt-3 btn-md bg-success text-white"
-        onClick={() => {
-          setGameState("quiz");
-        }}
-      >
-        Begin Test
-      </button>
+    <div>
+      <div className="menu ">
+        <br />
+        <strong>Sorular: </strong>8<br />
+        <strong>Süre: </strong>10 DK
+        <br />
+        <button
+          className=" btn mt-3 btn-md bg-success text-white"
+          onClick={() => {
+            setGameState("quiz");
+          }}
+        >
+          Teste Başla!
+        </button>
+      </div>
     </div>
   );
 };

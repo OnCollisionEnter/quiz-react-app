@@ -9,7 +9,9 @@
 
 #light .navbar-bg {
   /* background-color: rgb(255, 196, 157); */
-  background-color: #ffc26a;
+  /*OLD ORANGE SCHEME*/
+  /* background-color: #ffc26a; */
+  background-color: #f4f9f9;
   transition: 0.5s;
 }
 #dark .navbar-bg {
@@ -25,12 +27,14 @@
 
 .navbar-brand {
   color: #ffc26a;
+
   font-family: "Red Hat Display", sans-serif;
   font-weight: 800;
   font-size: x-large;
 }
 #light .navbar-brand {
-  color: #343dc0;
+  /* color: #343dc0; */
+  color: #ff6347;
 }
 
 .spans {
@@ -43,4 +47,24 @@
 
 #light a {
   color: #000000;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* navlinks */
+.navlink-hover {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.navlink-hover:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+#dark .navlink-hover:hover {
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }

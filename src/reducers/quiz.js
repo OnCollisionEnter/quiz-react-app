@@ -3,64 +3,64 @@
 const quizQuestions = [
   {
     id: 1,
-    question: "Which hook is used for making API calls in React?",
+    question: "She ___ very tall.",
     choices: {
-      a: "useFetch",
-      b: "useEffect",
-      c: "useState",
+      a: "is",
+      b: "am",
+      c: "are",
     },
     correctAnswer: "a",
   },
   {
     id: 2,
-    question:
-      "Which library is commonly used for state management in large React applications?",
+    question: "Are you __________!",
     choices: {
-      a: "React Router",
-      b: "Redux",
-      c: "React Context",
+      a: "short",
+      b: "serious",
+      c: "tall",
     },
     correctAnswer: "b",
   },
   {
     id: 3,
-    question:
-      "Which lifecycle method is called after a component has been rendered in React?",
+    question: "Why __ you sad?",
     choices: {
-      a: "componentWillMount",
-      b: "componentDidUpdate",
-      c: "componentDidMount",
+      a: "is",
+      b: "are",
+      c: "am",
     },
-    correctAnswer: "c",
+    correctAnswer: "b",
   },
   {
     id: 4,
-    question: "What is the purpose of the React Virtual DOM?",
+    question: "Make this phrase negative: 'She is fat.'",
     choices: {
-      a: "To improve performance by reducing the number of actual DOM updates.",
-      b: "To add inline styles to React components.",
-      c: "To handle form validation in React applications.",
+      a: "She is not fat.",
+      b: "She is no fat.",
+      c: "She no fat.",
     },
     correctAnswer: "a",
   },
   {
     id: 5,
-    question:
-      "Which feature allows you to optimize performance in React by avoiding unnecessary re-renders?",
+    question: "Make this phrase a question: 'You are happy.'",
     choices: {
-      a: "React Hooks",
-      b: "Memoization",
-      c: "Higher-Order Components (HOCs)",
+      a: "Happy you?",
+      b: "Are you happy?",
+      c: "You are happy?",
     },
     correctAnswer: "b",
   },
-  // Add more questions as needed
 ];
+
+// Add more questions as needed
+
 //CREATE REDUCER
 const quizReducer = (state = quizQuestions, action) => {
   switch (action.type) {
     case "ADD_QUESTION":
       return [...state, action.questionData];
+    //payload olması lazım... questionData yanlış
     case "DELETE_QUESTION":
       return state.filter(({ id }) => {
         return id !== action.id;
